@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ZiudithRie'X • Contact</title>
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Font: Inter (Modern & Clean) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(135deg, #0b1120 0%, #1a2639 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            position: relative;
+        }
+
+        /* Premium Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            background: rgba(17, 25, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            padding: 32px 24px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: rise 0.6s ease-out;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 20px;
+        }
+
+        .logo-ring {
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.1; }
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 30px -8px rgba(59, 130, 246, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo i {
+            font-size: 44px;
+            color: white;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #3b82f6;
+            margin-bottom: 16px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Progress Steps */
+        .progress {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 32px 0;
+            position: relative;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 18px;
+            left: 40px;
+            right: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6 var(--progress, 0%), #2d3748 var(--progress, 0%));
+            transition: --progress 0.3s ease;
+            z-index: 1;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            background: #1e293b;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            color: #64748b;
+            border: 2px solid #2d3748;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .progress-step.completed {
+            background: #10b981;
+            border-color: #10b981;
+            color: white;
+        }
+
+        .step-label {
+            position: absolute;
+            top: 45px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #64748b;
+            white-space: nowrap;
+        }
+
+        /* Verification Cards */
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: #1e293b;
+            border: 1px solid #2d3748;
+            border-radius: 24px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .card.active {
+            opacity: 1;
+            pointer-events: all;
+            border-color: #3b82f6;
+            background: linear-gradient(135deg, #1e293b, #1a2639);
+            box-shadow: 0 8px 16px -8px rgba(59, 130, 246, 0.3);
+        }
+
+        .card.completed {
+            opacity: 0.8;
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+            pointer-events: none;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+        }
+
+        .yt-bg {
+            background: rgba(255, 0, 0, 0.15);
+            color: #ff0000;
+        }
+
+        .tt-bg {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .wa-bg {
+            background: rgba(37, 211, 102, 0.15);
+            color: #25D366;
+        }
+
+        .tg-bg {
+            background: rgba(0, 136, 204, 0.15);
+            color: #0088cc;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .card-info p {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            background: #2d3748;
+            color: #94a3b8;
+        }
+
+        .card.completed .status-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 16px;
+            border: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #2d3748;
+            color: #94a3b8;
+            border: 1px solid #4a5568;
+        }
+
+        .card.active .action-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .card.active .action-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .action-btn i {
+            font-size: 16px;
+        }
+
+        /* Chat Section */
+        .chat-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #2d3748;
+        }
+
+        .chat-btn {
+            width: 100%;
+            padding: 18px;
+            border-radius: 20px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #0088cc, #00aced);
+            color: white;
+            border: none;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .chat-btn.active {
+            opacity: 1;
+            pointer-events: all;
+            box-shadow: 0 10px 20px -5px rgba(0, 136, 204, 0.5);
+        }
+
+        .chat-btn.active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(0, 136, 204, 0.6);
+        }
+
+        .chat-btn i {
+            font-size: 20px;
+        }
+
+        .username-hint {
+            text-align: center;
+            margin-top: 12px;
+            color: #4a5568;
+            font-size: 13px;
+        }
+
+        .username-hint strong {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            color: #4a5568;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-wrapper">
+                <div class="logo-ring"></div>
+                <div class="logo">
+                    <i class="fas fa-crown"></i>
+                </div>
+            </div>
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Verified Merchant</span>
+            </div>
+            <h1>Veronix Store</h1>
+            <p class="subtitle">Complete all steps to unlock chat</p>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="progress">
+            <div class="progress-line" id="progressLine"></div>
+
+            <div class="progress-step" id="step1">
+                1
+                <span class="step-label">YouTube</span>
+            </div>
+            <div class="progress-step" id="step2">
+                2
+                <span class="step-label">TikTok</span>
+            </div>
+            <div class="progress-step" id="step3">
+                3
+                <span class="step-label">WA</span>
+            </div>
+        </div>
+
+        <!-- Verification Cards -->
+        <div class="cards">
+            <!-- YouTube Card -->
+            <div class="card" id="cardYoutube">
+                <div class="card-header">
+                    <div class="icon-wrapper yt-bg">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Subscribe YouTube</h3>
+                        <p>@Veronix-h2s</p>
+                    </div>
+                    <span class="status-badge" id="ytStatus">Pending</span>
+                </div>
+                <button class="action-btn" id="ytBtn" onclick="verifyYoutube()">
+                    <i class="fab fa-youtube"></i>
+                    Subscribe Sekarang
+                </button>
+            </div>
+
+            <!-- TikTok Card (DIPERBARUI) -->
+            <div class="card" id="cardTiktok">
+                <div class="card-header">
+                    <div class="icon-wrapper tt-bg">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Follow TikTok</h3>
+                        <!-- USERNAME TIKTOK BARU -->
+                        <p>@ziudithriex</p>
+                    </div>
+                    <span class="status-badge" id="ttStatus">Pending</span>
+                </div>
+                <button class="action-btn" id="ttBtn" onclick="verifyTiktok()">
+                    <i class="fab fa-tiktok"></i>
+                    Follow Sekarang
+                </button>
+            </div>
+
+            <!-- WhatsApp Channel Card -->
+            <div class="card" id="cardWhatsapp">
+                <div class="card-header">
+                    <div class="icon-wrapper wa-bg">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Join WhatsApp Channel</h3>
+                        <p>Veronix Updates</p>
+                    </div>
+                    <span class="status-badge" id="waStatus">Pending</span>
+                </div>
+                <button class="action-btn" id="waBtn" onclick="verifyWhatsapp()">
+                    <i class="fab fa-whatsapp"></i>
+                    Join Channel
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <button class="chat-btn" id="chatBtn" onclick="openTelegram()">
+                <i class="fab fa-telegram-plane"></i>
+                Chat Admin @ZiudithRie
+            </button>
+            <p class="username-hint">
+                <i class="fas fa-lock-open"></i>
+                Chat akan terbuka setelah verifikasi
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Veronix Store • All rights reserved</p>
+        </div>
+    </div>
+
+    <script>
+        // Data URLs (DIPERBARUI)
+        const YOUTUBE_URL = 'https://www.youtube.com/@Veronix-h2s';
+        // URL TIKTOK BARU
+        const TIKTOK_URL = 'https://tiktok.com/@ziudithriex';
+        const WHATSAPP_URL = 'https://whatsapp.com/channel/0029Vb7qhxzJENxxvEiCr73t';
+        const TELEGRAM_USERNAME = 'ZiudithRie';
+
+        // State
+        let ytVerified = false;
+        let ttVerified = false;
+        let waVerified = false;
+
+        // Progress bar update
+        function updateProgress() {
+            const steps = [ytVerified, ttVerified, waVerified];
+            const completedCount = steps.filter(v => v).length;
+            const progress = (completedCount / 3) * 100;
+
+            document.getElementById('progressLine').style.setProperty('--progress', progress + '%');
+
+            // Update step indicators
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+
+            if (ytVerified) {
+                step1.classList.add('completed');
+                step1.classList.remove('active');
+            } else {
+                step1.classList.add('active');
+                step1.classList.remove('completed');
+            }
+
+            if (ttVerified) {
+                step2.classList.add('completed');
+                step2.classList.remove('active');
+            } else if (ytVerified) {
+                step2.classList.add('active');
+                step2.classList.remove('completed');
+            } else {
+                step2.classList.remove('active', 'completed');
+            }
+
+            if (waVerified) {
+                step3.classList.add('completed');
+                step3.classList.remove('active');
+            } else if (ttVerified) {
+                step3.classList.add('active');
+                step3.classList.remove('completed');
+            } else {
+                step3.classList.remove('active', 'completed');
+            }
+
+            // Update card states
+            document.getElementById('cardYoutube').classList.toggle('completed', ytVerified);
+            document.getElementById('cardYoutube').classList.toggle('active', !ytVerified);
+
+            document.getElementById('cardTiktok').classList.toggle('completed', ttVerified);
+            document.getElementById('cardTiktok').classList.toggle('active', ytVerified && !ttVerified);
+
+            document.getElementById('cardWhatsapp').classList.toggle('completed', waVerified);
+            document.getElementById('cardWhatsapp').classList.toggle('active', ttVerified && !waVerified);
+
+            // Update status badges
+            document.getElementById('ytStatus').textContent = ytVerified ? 'Done ✓' : 'Pending';
+            document.getElementById('ttStatus').textContent = ttVerified ? 'Done ✓' : 'Pending';
+            document.getElementById('waStatus').textContent = waVerified ? 'Done ✓' : 'Pending';
+
+            document.getElementById('ytStatus').style.color = ytVerified ? '#10b981' : '#94a3b8';
+            document.getElementById('ttStatus').style.color = ttVerified ? '#10b981' : '#94a3b8';
+            document.getElementById('waStatus').style.color = waVerified ? '#10b981' : '#94a3b8';
+
+            // Update chat button
+            const chatBtn = document.getElementById('chatBtn');
+            if (ytVerified && ttVerified && waVerified) {
+                chatBtn.classList.add('active');
+            } else {
+                chatBtn.classList.remove('active');
+            }
+        }
+
+        // Verification functions
+        function verifyYoutube() {
+            window.open(YOUTUBE_URL, '_blank');
+            // Simulasi verifikasi (ideal-nya ada cek otomatis, tapi untuk demo ini)
+            setTimeout(() => {
+                ytVerified = true;
+                updateProgress();
+            }, 1000);
+        }
+
+        function verifyTiktok() {
+            if (!ytVerified) {
+                alert('Selesaikan subscribe YouTube terlebih dahulu!');
+                return;
+            }
+            window.open(TIKTOK_URL, '_blank');
+            setTimeout(() => {
+                ttVerified = true;
+                updateProgress();
+            }, 1000);
+        }
+
+        function verifyWhatsapp() {
+            if (!ttVerified) {
+                alert('Selesaikan follow TikTok terlebih dahulu!');
+                return;
+            }
+            window.open(WHATSAPP_URL, '_blank');
+            setTimeout(() => {
+                waVerified = true;
+                updateProgress();
+            }, 1000);
+        }
+
+        function openTelegram() {
+            if (ytVerified && ttVerified && waVerified) {
+                window.open(`https://t.me/${TELEGRAM_USERNAME}`, '_blank');
+            } else {
+                alert('Selesaikan semua verifikasi terlebih dahulu!');
+            }
+        }
+
+        // Initial update
+        updateProgress();
+    </script>
+</body>
+</html>
